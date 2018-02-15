@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="ch.htwchur.nailpluginswift" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Nail Plugin Swift</name>
+    <!--
+    <js-module name="nailplugin" src="www/nailplugin.js">
+        <clobbers target="Nailplugin" />
+    </js-module>
+  -->
+<platform name="ios">
+  <js-module src="www/nailpluginswift.js" name="nailpluginswift">
+    <runs/>
+    <clobbers target="NailPluginSwift" />
+  </js-module>
+  <config-file target="config.xml" parent="/*">
+    <feature name="NailPluginSwift">
+      <param name="ios-package" value="NailPluginSwift" onload="true" />
+    </feature>
+  </config-file>
+  <source-file src="src/ios/NailPluginSwift.swift" />
+<!--
+  <header-file src="src/ios/NailPlugin.h" />
+  <source-file src="src/ios/NailPlugin.m" />
+-->
+</platform>
+
+</plugin>

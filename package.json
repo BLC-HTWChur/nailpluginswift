@@ -1,0 +1,11 @@
+{
+  "name": "nail-plugin-swift",
+  "version": "0.0.1",
+  "cordova" : {
+    "id": "ch.htwchur.nailpluginswift",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "description": "plugin for NAIL API(swiss eduid authentication process)"
+}
