@@ -8,10 +8,11 @@ import MobileCoreServices
     @objc(login:)
     func login(command: CDVInvokedUrlCommand){
         let item = "org.moodle.moodle_mobile_app"
+        let singleton = true
         self.command = command
-        print("IN PLUGIN SWIFT")
+        print("IN PLUGIN SWIFT , singleton : \(singleton)")
         
-        let activityVC = UIActivityViewController(activityItems: [item], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [item, singleton.description], applicationActivities: nil)
         DispatchQueue.main.async {
             self.viewController.present(activityVC, animated: true, completion: nil)
         }
