@@ -9,13 +9,16 @@ import MobileCoreServices
     @objc(login:)
     func login(command: CDVInvokedUrlCommand){
         //set the protocols and and singleton for the extension
-        let item = "org.moodle.moodle_mobile_app"
-        let singleton = true
+        let singleton = false
         self.command = command
-
+        print("Args : " , command.arguments)
         print("IN PLUGIN SWIFT , singleton : \(singleton)")
-
-        let activityVC = UIActivityViewController(activityItems: [item, singleton.description], applicationActivities: nil)
+        
+        let arg = command.arguments.first as! [String : Any]
+        var item = arg["protocols"] as! [String]
+        item.append(singleton.description)
+        
+        let activityVC = UIActivityViewController(activityItems: item, applicationActivities: nil)
         DispatchQueue.main.async {
             self.viewController.present(activityVC, animated: true, completion: nil)
         }
@@ -49,7 +52,9 @@ import MobileCoreServices
                     
                     let dataSource = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String : Any]
                     print("DATA SOURCE : \(dataSource!)")
-                    let result = CDVPluginResult.init(status: CDVCommandStatus_OK, messageAs: dataSource!["api_key"] as! String)
+                    
+                    let dict = dataSource!["Wall-E"] as! [String : Any]
+                    let result = CDVPluginResult.init(status: CDVCommandStatus_OK, messageAs: dict["api_key"] as! String)
                     self.commandDelegate.send(result, callbackId: self.command?.callbackId)
 
                 } catch{
