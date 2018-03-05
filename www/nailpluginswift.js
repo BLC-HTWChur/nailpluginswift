@@ -5,7 +5,12 @@ var PLUGIN_NAME = 'NailPluginSwift';
 var NailPluginSwift = {
   login: function(protocols, cb) {
     exec(cb, null, PLUGIN_NAME, 'login', [{"protocols" : protocols}]);
+  },
+
+  login2: function(protocols,cb) {
+  	exec(cb,null, PLUGIN_NAME, 'login2', [{"protocols" : protocols}]);
   }
+
 };
 
 module.exports = NailPluginSwift;
