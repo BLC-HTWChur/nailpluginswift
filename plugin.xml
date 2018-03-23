@@ -17,6 +17,9 @@
     </feature>
   </config-file>
   <source-file src="src/ios/NailPluginSwift.swift" />
+  <source-file src="src/ios/IdNativeAppIntegrationLayer.swift" />
+  <source-file src="src/ios/ApiContainer.swift" />
+  <source-file src="src/ios/AuthorizationContainer.swift" />
 <!--
   <header-file src="src/ios/NailPlugin.h" />
   <source-file src="src/ios/NailPlugin.m" />
