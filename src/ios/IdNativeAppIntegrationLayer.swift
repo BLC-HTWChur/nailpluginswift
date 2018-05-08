@@ -122,7 +122,9 @@ class IdNativeAppIntegrationLayer {
             return ""
         }
         
-        return authCon.getAccessToken()
+        //return authCon.getAccessToken()
+        //for now return the api_key....
+        return authCon.getApiKey()
     }
     
     func getDisplayName (serviceName: String) -> String {

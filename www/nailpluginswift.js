@@ -3,18 +3,18 @@ var exec = require('cordova/exec');
 var PLUGIN_NAME = 'NailPluginSwift';
 //the function which connect java script and native language
 var NailPluginSwift = {
-  authorizeProtocols: function(protocols, successCallback) {
+  authorizeProtocols: function(protocols, successCallback, errorCallback) {
     exec(successCallback,
-      null,
+      errorCallback,
       PLUGIN_NAME,
       'authorizeProtocols',
       [{"protocols" : protocols}]
     );
   },
 
-  authorizeProtocols2: function(protocols,successCallback) {
+  authorizeProtocols2: function(protocols,successCallback, errorCallback) {
     exec(successCallback,
-      null,
+      errorCallback,
       PLUGIN_NAME,
       'authorizeProtocols2',
       [{"protocols" : protocols}]

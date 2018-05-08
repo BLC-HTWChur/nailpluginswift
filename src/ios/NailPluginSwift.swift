@@ -32,7 +32,8 @@ import MobileCoreServices
             print("BACK FROM EXTENSION")
             if(returnedItems == nil || returnedItems!.count <= 0){
                 print("No Item found from extension")
-                return
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR)
+                self.commandDelegate.send(pluginResult, callbackId: command.callbackId)
             }else {
                 let item : NSExtensionItem = returnedItems?.first as! NSExtensionItem
                 self.extractDataFromExtension(item: item)
@@ -65,7 +66,8 @@ import MobileCoreServices
             print("BACK FROM EXTENSION")
             if(returnedItems == nil || returnedItems!.count <= 0){
                 print("No Item found from extension")
-                return
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_ERROR)
+                self.commandDelegate.send(pluginResult, callbackId: command.callbackId)
             }else {
                 let item : NSExtensionItem = returnedItems?.first as! NSExtensionItem
                 self.extractDataFromExtension(item: item)
